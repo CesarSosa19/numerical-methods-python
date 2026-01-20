@@ -43,17 +43,48 @@ Asegúrate de tener instalado:
 Abre tu terminal y clona este repositorio:
 
 
-# Clonar el repositorio
+#### 2.1 Clonar el repositorio
 ```bash
 git clone https://github.com/CesarSosa19/numerical-methods-python
 ```
 
-# Entrar a la carpeta del proyecto
+#### 2.2 Entrar a la carpeta del proyecto
 ```bash
 cd numerical-methods-python
 ```
 
-# Ejecutar el programa: Asegúrate de estar en la carpeta raíz y ejecuta:
+### 3. Ejecutar el programa: Asegúrate de estar en la carpeta raíz y ejecuta:
 ```bash
 python src/main.py
 ```
+Nota para Windows: Si el comando python no funciona, prueba escribiendo py main.py
+
+## Guía de Uso
+
+El programa es interactivo y funciona desde la consola. Para asegurar que tus cálculos sean correctos, es importante seguir la sintaxis de Python al escribir las ecuaciones.
+
+### 1. Reglas de Sintaxis
+* **Variable:** Utiliza siempre la letra **`x`** (minúscula).
+* **Potencias:** Usa el operador **`**`** (doble asterisco). El símbolo `^` **no** funciona para potencias en Python.
+* **Funciones Matemáticas:** Antepón el prefijo `math.` para usar funciones trigonométricas, logaritmos o exponenciales.
+
+### 2. Ejemplos de Escritura
+
+| Ecuación Matemática | **Cómo escribirla en el programa** |
+| :--- | :--- |
+| $x^2 - 4$ | `x**2 - 4` |
+| $e^x - 1$ | `math.exp(x) - 1` |
+| $\sin(x) - x$ | `math.sin(x) - x` |
+| $\sqrt{x} - 5$ | `math.sqrt(x) - 5` |
+| $\ln(x) + 2$ | `math.log(x) + 2` |
+
+### 3. Pasos para usar el programa
+
+1.  **Iniciar:** Ejecuta el archivo `main.py`.
+2.  **Definir la función:** Escribe tu ecuación cuando veas `f(x) = `.
+    * *Ejemplo:* `math.cos(x) - x**3`
+3.  **Seleccionar el Método:**
+    * Escribe `1` para **Bisección** (requiere un intervalo `[a, b]`).
+    * Escribe `2` para **Newton-Raphson** (requiere un punto inicial `x0`).
+4.  **Parámetros:** Ingresa los valores solicitados (intervalos o punto inicial) y la tolerancia deseada (ej. `0.0001`).
+5.  **Resultado:** El programa mostrará la raíz aproximada o un mensaje de error si no converge.
