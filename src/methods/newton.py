@@ -1,15 +1,14 @@
-def newton_raphson(funcion, derivada, a, tol, max_iter=100):
+def newton_raphson(funcion, a, tol, max_iter=100):
 
+    h = 1e-5
     xn = a
 
     for i in range(max_iter):
         fxn = funcion(xn)
+        dfxn = (funcion(xn + h) - funcion(xn)) / h
 
-        ## cambiar esto por una derivada hecha por la computadora
-        dfxn = derivada(xn)
-
-        if dfxn == 0:
-            print("la derivada es cero. No se puede continuar.")
+        if abs(dfxn) < 1e-10:
+            print("la derivada es cero. (pendiente horizontal)")
             return None
 
         xn_siguiente = xn - (fxn / dfxn)
