@@ -42,13 +42,18 @@ Asegúrate de tener instalado:
 ### 2. Instalación
 Abre tu terminal y clona este repositorio:
 
-```bash
+
 # Clonar el repositorio
+```bash
 git clone https://github.com/CesarSosa19/numerical-methods-python
+```
 
 # Entrar a la carpeta del proyecto
+```bash
 cd numerical-methods-python
+```
 
 # Ejecutar el programa: Asegúrate de estar en la carpeta raíz y ejecuta:
+```bash
 python src/main.py
-
+```
