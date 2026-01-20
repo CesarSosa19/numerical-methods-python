@@ -27,12 +27,36 @@ def bisection(funcion, a, b, tol):
             contador += 1
 
         print(f"Raíz encontrada en {contador} iteraciones.")
-        return x  # <--- Al final, devolvemos el valor encontrado
+        contador = 0
 
 
-def newton_raphson(funcion, a, b, tol):
-    print(f"--> Ejecutando Newton-Raphson desde x0={x0}")
-    return 0.0
+def newton_raphson(funcion, derivada, a, tol, max_iter=100):
+
+    xn = a
+
+    for i in range(max_iter):
+        fxn = funcion(xn)
+
+        ## cambiar esto por una derivada hecha por la computadora
+        dfxn = derivada(xn)
+
+        if dfxn == 0:
+            print("la derivada es cero. No se puede continuar.")
+            return None
+
+        xn_siguiente = xn - (fxn / dfxn)
+        print(f"iteracion {i}: x = {xn_siguiente}")
+
+        if abs(xn_siguiente - xn) < tol:
+            print(f"Raiz encontrada en {i + 1} iteraciones.")
+            print(xn_siguiente)
+            return xn_siguiente
+
+        xn = xn_siguiente
+
+    print("se alcanzo el maximo de iteraciones sin converger")
+    return xn
+
 
 def menu():
     print("\n" + "="*30)
@@ -46,7 +70,9 @@ def menu():
 
 def iniciar_programa():
     # f(x) = x^2 - 4
+    ## cambiar esto por una derivada dada por el usuario
     funcion = lambda x: x**2 - 4
+    derivada = lambda x: 2*x
 
     while True:
         menu()
@@ -54,7 +80,7 @@ def iniciar_programa():
 
         if opcion == '1':
             print("\n--- Configurando Bisección ---")
-            a = float(input("Ingresa el punto 'a': "))
+            a: float = float(input("Ingresa el punto 'a': "))
             b = float(input("Ingresa el punto 'b': "))
             tol = float(input("Ingresa la tolerancia (ej. 0.001): "))
 
@@ -63,9 +89,9 @@ def iniciar_programa():
         elif opcion == '2':
             print("\n--- Configurando Newton-Raphson ---")
             x0 = float(input("Ingresa el valor inicial x0: "))
-            tol = float(input("Ingresa la tolerancia: "))
+            tol = float(input("Ingresa la tolerancia (ej. 0.001): "))
 
-            newton_raphson(funcion, x0, tol)
+            newton_raphson(funcion, derivada, x0, tol)
 
         elif opcion == '3':
             print("Saliendo del programa.")
