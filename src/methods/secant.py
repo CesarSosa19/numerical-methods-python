@@ -1,3 +1,4 @@
+from src.methods.errors import errors
 def secant(funcion, a, b, tol, max_iter=100):
 
     fa = funcion(a)
@@ -11,9 +12,11 @@ def secant(funcion, a, b, tol, max_iter=100):
             return None
 
         xnuevo = b - (fb * (b - a))/denominador
+
+        e_abs, e_rel = errors(xnuevo, b)
         print(f"Iteración {i+1}: x = {xnuevo}")
 
-        if abs(xnuevo - b) < tol:
+        if e_rel < tol:
             print(f"¡Raíz encontrada! en {i + 1} iteraciones.")
             return xnuevo
 

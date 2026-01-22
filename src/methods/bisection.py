@@ -1,29 +1,27 @@
-def bisection(funcion, a, b, tol):
-
-    contador = 0
-    error = b - a
+from src.methods.errors import errors
+def bisection(funcion, a, b, tol, max_iter=100):
+    xanterior = a
     fa = funcion(a)
     fb = funcion(b)
 
-    if fa * fb > 0:
-        print("No existe raiz real en la funcion")
-        return None
+    for i in range(max_iter):
+        xnueva = (a + b) / 2
 
-    else:
-        while error > tol:
-            x = (a + b)/2
-            fx = funcion(x)
+        if i > 1:
+            e_abs, e_rel = errors(xnueva, xanterior)
 
-            print(f"Iteración {contador}: x = {x}, error = {error}")
+            if e_rel < tol:
+                print(f"raiz encontrada: {xnueva}")
+                return xnueva
+        else:
+            print(f"{i:<5} | {xnueva:<12.8f} | {'----------':<15}")
 
-            if fa * fx > 0:
-                a = x
-                fa = fx
-            else:
-                b = x
-            error = error / 2
-            contador += 1
 
-        print(f"Raíz encontrada en {contador} iteraciones.")
-        print(f"La raiz real es {a}")
-        contador = 0
+        if fa * funcion(xnueva) < 0:
+            b = xnueva
+        else:
+            a = xnueva
+
+        xanterior = xnueva
+
+    return xnueva

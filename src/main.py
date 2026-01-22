@@ -1,6 +1,8 @@
 from methods.bisection import bisection
 from methods.newton import newton_raphson
 from methods.secant import secant
+from methods.visualizer import generar_grafica
+
 # ocupar sympy en lugar de math
 import math
 
@@ -51,12 +53,22 @@ def iniciar_programa():
 
                 bisection(f, a, b, tol)
 
+                res = bisection(f, a, b, tol)
+
+                if res is not None:
+                    generar_grafica(f, res, a, b)
+
             elif opcion == '2':
                 print("\n--- Configurando Newton-Raphson ---")
                 x0 = leer_num("Ingresa el valor inicial x0: ")
                 tol = leer_num("Ingresa la tolerancia (ej. 0.001): ")
 
                 newton_raphson(f, x0, tol)
+
+                res = newton_raphson(f, x0, tol)
+
+                if res is not None:
+                    generar_grafica(f, res, x0, tol)
 
             elif opcion == '3':
                 print("\n--- Configurando Secante ---")
@@ -65,6 +77,11 @@ def iniciar_programa():
                 tol = leer_num("Ingresa la tolerancia (ej. 0.001): ")
 
                 secant(f, x0, x1, tol)
+
+                res = secant(f, x0, x1, tol)
+
+                if res is not None:
+                    generar_grafica(f, res, min(x0, x1), max(x0,x1))
 
             elif opcion == '4':
                 print("Saliendo del programa.")

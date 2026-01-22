@@ -1,3 +1,4 @@
+from src.methods.errors import errors
 def newton_raphson(funcion, a, tol, max_iter=100):
 
     h = 1e-5
@@ -12,9 +13,11 @@ def newton_raphson(funcion, a, tol, max_iter=100):
             return None
 
         xn_siguiente = xn - (fxn / dfxn)
+        e_Abs, e_Rel = errors(xn_siguiente, xn)
+
         print(f"iteracion {i}: x = {xn_siguiente}")
 
-        if abs(xn_siguiente - xn) < tol:
+        if e_Rel < tol:
             print(f"Raiz encontrada en {i + 1} iteraciones.")
             print(xn_siguiente)
             return xn_siguiente
