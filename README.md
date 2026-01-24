@@ -92,10 +92,10 @@ El programa es interactivo y funciona desde la consola. Para asegurar que tus c�
 ### 4. Capturas del programa
 
 #### Metodo de biseccion
-![Método de Bisección](assets/biseccion.jpeg)
+![Método de Bisección](assets/bisection.jpeg)
 
 #### Metodo de newton
-![Método de Bisección](assets/newton.jpeg)
+![Método de newton](assets/newton.jpeg)
 
-#### Metodo de biseccion
-![Método de Bisección](assets/secant.jpeg)
+#### Metodo de secante
+![Método de secante](assets/secant.jpeg)
