@@ -1,4 +1,4 @@
-from src.methods.errors import errors
+from methods.errors import errors
 def newton_raphson(funcion, a, tol, max_iter=100):
 
     h = 1e-5
@@ -12,17 +12,17 @@ def newton_raphson(funcion, a, tol, max_iter=100):
             print("la derivada es cero. (pendiente horizontal)")
             return None
 
-        xn_siguiente = xn - (fxn / dfxn)
-        e_Abs, e_Rel = errors(xn_siguiente, xn)
+        xnSiguiente = xn - (fxn / dfxn)
+        e_Abs, e_Rel = errors(xnSiguiente, xn)
 
-        print(f"iteracion {i}: x = {xn_siguiente}")
+        print(f"iteracion {i}: x = {xnSiguiente}")
 
         if e_Rel < tol:
             print(f"Raiz encontrada en {i + 1} iteraciones.")
-            print(xn_siguiente)
-            return xn_siguiente
+            print(xnSiguiente)
+            return xnSiguiente
 
-        xn = xn_siguiente
+        xn = xnSiguiente
 
     print("se alcanzo el maximo de iteraciones sin converger")
     return xn

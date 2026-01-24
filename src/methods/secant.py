@@ -1,4 +1,4 @@
-from src.methods.errors import errors
+from methods.errors import errors
 def secant(funcion, a, b, tol, max_iter=100):
 
     fa = funcion(a)
@@ -11,19 +11,19 @@ def secant(funcion, a, b, tol, max_iter=100):
             print("Error division entre 0")
             return None
 
-        xnuevo = b - (fb * (b - a))/denominador
+        xNuevo = b - (fb * (b - a))/denominador
 
-        e_abs, e_rel = errors(xnuevo, b)
-        print(f"Iteración {i+1}: x = {xnuevo}")
+        e_abs, e_rel = errors(xNuevo, b)
+        print(f"Iteración {i+1}: x = {xNuevo}")
 
         if e_rel < tol:
             print(f"¡Raíz encontrada! en {i + 1} iteraciones.")
-            return xnuevo
+            return xNuevo
 
         a = b
         fa = fb
-        b = xnuevo
-        fb = funcion(xnuevo)
+        b = xNuevo
+        fb = funcion(xNuevo)
 
     print("Se alcanzó el máximo de iteraciones sin converger.")
     return b

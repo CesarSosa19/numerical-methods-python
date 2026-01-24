@@ -1,27 +1,27 @@
-from src.methods.errors import errors
+from methods.errors import errors
 def bisection(funcion, a, b, tol, max_iter=100):
-    xanterior = a
+    xActual = a
     fa = funcion(a)
     fb = funcion(b)
 
     for i in range(max_iter):
-        xnueva = (a + b) / 2
+        xNueva = (a + b) / 2
 
         if i > 1:
-            e_abs, e_rel = errors(xnueva, xanterior)
+            e_abs, e_rel = errors(xNueva, xActual)
 
             if e_rel < tol:
-                print(f"raiz encontrada: {xnueva}")
-                return xnueva
+                print(f"raiz encontrada: {xNueva}")
+                return xNueva
         else:
-            print(f"{i:<5} | {xnueva:<12.8f} | {'----------':<15}")
+            print(f"{i:<5} | {xNueva:<12.8f} | {'----------':<15}")
 
 
-        if fa * funcion(xnueva) < 0:
-            b = xnueva
+        if fa * funcion(xNueva) < 0:
+            b = xNueva
         else:
-            a = xnueva
+            a = xNueva
 
-        xanterior = xnueva
+        xActual = xNueva
 
-    return xnueva
+    return xNueva

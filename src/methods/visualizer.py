@@ -3,7 +3,7 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import numpy as np
 
-def generar_grafica(f, raiz, x_min, x_max):
+def graph(f, raiz, x_min, x_max):
     x = np.linspace(x_min - 1, x_max + 1, 500)
 
     try:

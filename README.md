@@ -88,3 +88,14 @@ El programa es interactivo y funciona desde la consola. Para asegurar que tus c�
     * Escribe `2` para **Newton-Raphson** (requiere un punto inicial `x0`).
 4.  **Parámetros:** Ingresa los valores solicitados (intervalos o punto inicial) y la tolerancia deseada (ej. `0.0001`).
 5.  **Resultado:** El programa mostrará la raíz aproximada o un mensaje de error si no converge.
+
+### 4. Capturas del programa
+
+#### Metodo de biseccion
+![Método de Bisección](assets/biseccion.jpeg)
+
+#### Metodo de newton
+![Método de Bisección](assets/newton.jpeg)
+
+#### Metodo de biseccion
+![Método de Bisección](assets/secant.jpeg)
